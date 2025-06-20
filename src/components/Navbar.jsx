@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Player } from "@lottiefiles/react-lottie-player";
 import notFoundAnim from "../assets/lottie/ser.json";
 import { useRouter } from "next/navigation";
-import "./navbar.scss";
+import "./Navbar.scss";
 
 const Navbar = () => {
   const { darkMode, setDarkMode } = useTheme();

@@ -1,5 +1,5 @@
 import React from "react";
-import "./innovation.scss";
+import "./Innovation.scss";
 
 const innovations = [
   {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./contact.scss";
+import "./Contact.scss";
 import { Player } from "@lottiefiles/react-lottie-player";
 import glow from "../assets/lottie/contact-glow.json";
 

@@ -1,6 +1,6 @@
 // src/components/Features.jsx
 import React from "react";
-import "./features.scss";
+import "./Features.scss";
 
 const featureCards = [
   {

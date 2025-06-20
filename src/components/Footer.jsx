@@ -1,5 +1,5 @@
 import React from "react";
-import "./footer.scss";
+import "./Footer.scss";
 import { Player } from "@lottiefiles/react-lottie-player";
 import globe from "../assets/lottie/globe2.json";
 import { FaLinkedin, FaInstagram, FaGithub, FaTwitter, FaYoutube } from "react-icons/fa";

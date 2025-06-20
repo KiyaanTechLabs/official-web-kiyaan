@@ -3,7 +3,7 @@
 import React from "react";
 import { useTheme } from "../context/ThemeContext";
 import { motion } from "framer-motion";
-import "./divisions.scss";
+import "./Divisions.scss";
 
 const divisions = [
   {

@@ -1,5 +1,5 @@
 import React from "react";
-import "./products.scss";
+import "./Products.scss";
 
 const redactedProducts = [
   {
