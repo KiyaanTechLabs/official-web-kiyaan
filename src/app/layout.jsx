@@ -6,6 +6,9 @@ import BodyWrapper from "../components/BodyWrapper";
 export const metadata = {
   title: "Kiyaan TechLabs",
   description: "Building the Tech Behind the Future",
+  icons: {
+    icon: "/icok.png", // Or use .png/.svg if you prefer
+  },
 };
 
 export default function RootLayout({ children }) {
