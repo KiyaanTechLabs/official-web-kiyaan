@@ -1,0 +1,162 @@
+// @import "../styles/_variables";
+@use "../styles/variables" as *;
+
+
+$primary: #0092de;
+$secondary: #00224d;
+$dark-bg: #0c1525;
+$text-light: #f0f0f0;
+$light-bg: #f0f0f0;
+$text-dark: #111;
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: $light-bg;
+  transition: background-color 0.3s ease;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding: 5rem 3rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 6rem 4rem;
+  }
+
+  .hero-content {
+    max-width: 620px;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: $text-dark;
+
+      @media (min-width: 480px) {
+        font-size: 2.2rem;
+      }
+
+      @media (min-width: 768px) {
+        font-size: 2.5rem;
+      }
+
+      @media (min-width: 1024px) {
+        font-size: 3rem;
+      }
+    }
+
+    p {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+
+      @media (min-width: 768px) {
+        font-size: 1.125rem;
+      }
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      @media (min-width: 480px) {
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      @media (min-width: 768px) {
+        justify-content: flex-start;
+      }
+
+      .primary-btn,
+      .secondary-btn {
+        font-size: 0.95rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 999px;
+        font-weight: 600;
+        transition: all 0.3s;
+        white-space: nowrap;
+      }
+
+      .primary-btn {
+        background: $primary;
+        color: white;
+        border: none;
+
+        &:hover {
+          background: darken($primary, 10%);
+        }
+      }
+
+      .secondary-btn {
+        background: transparent;
+        color: $secondary;
+        border: 2px solid $secondary;
+
+        &:hover {
+          background: $secondary;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .hero-image {
+    margin-top: 2rem;
+    max-width: 480px;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      margin-top: 0;
+      max-width: 550px;
+    }
+
+    img,
+    .hero-video {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 1rem;
+    }
+  }
+}
+
+// Dark Mode
+.dark {
+  .hero-section {
+    background-color: $dark-bg;
+
+    .hero-content {
+      h1 {
+        color: $text-light;
+      }
+
+      p {
+        color: #ccc;
+      }
+
+      .hero-buttons {
+        .secondary-btn {
+          color: $text-light;
+          border-color: $text-light;
+
+          &:hover {
+            background: $text-light;
+            color: $dark-bg;
+          }
+        }
+      }
+    }
+  }
+}

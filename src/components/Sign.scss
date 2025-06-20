@@ -1,0 +1,174 @@
+.sign-enhanced {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  &.dark {
+    background: radial-gradient(#0f172a, #020617);
+    color: #fff;
+  }
+
+  &.light {
+    background: radial-gradient(#e0f2ff, #f0f9ff);
+    color: #111;
+  }
+
+  .background-lottie {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.25;
+    pointer-events: none;
+  }
+
+  .form-glass {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border-radius: 1.5rem;
+    padding: 3rem 2.5rem;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+  }
+
+  .form-title {
+    font-size: 1.7rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .sign-form {
+    display: flex;
+    flex-direction: column;
+
+    .floating-input {
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      outline: none;
+      padding: 0.9rem 1.1rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      border-radius: 0.75rem;
+      color: inherit;
+      backdrop-filter: blur(4px);
+      transition: box-shadow 0.3s;
+
+      &:focus {
+        box-shadow: 0 0 0 2px #4f46e5;
+      }
+    }
+
+    .password-wrap {
+      position: relative;
+
+      .toggle-password {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: inherit;
+      }
+    }
+
+    .submit-glow {
+      background: linear-gradient(to right, #6366f1, #4f46e5);
+      color: #fff;
+      padding: 0.85rem 1rem;
+      border: none;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: box-shadow 0.3s ease;
+
+      &:hover {
+        box-shadow: 0 0 15px #6366f1aa;
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .switch-text {
+    text-align: center;
+    margin-top: 1.2rem;
+    font-size: 0.95rem;
+
+    .form-switch {
+      background: none;
+      border: none;
+      color: #4f46e5;
+      font-weight: 500;
+      text-decoration: underline;
+      cursor: pointer;
+
+      &:hover {
+        color: #4338ca;
+      }
+    }
+  }
+}
+
+.lottie-overlay {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3); 
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.4s ease forwards;
+
+  .lottie-panel {
+    background: white;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 320px;
+    width: 90%;
+    animation: fadeInUp 0.5s ease forwards;
+  }
+
+  .lottie-center {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+  }
+
+  .splash-text {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,202 @@
+@import "../styles/variables";
+
+.innovation-section {
+  padding: 5rem 2rem;
+  background: $light-bg;
+  text-align: center;
+  transition: background 0.4s ease;
+
+  .innovation-header {
+    margin-bottom: 3rem;
+
+    .section-title {
+      font-size: 2.7rem;
+      font-weight: 700;
+      color: $deep-blue;
+      letter-spacing: -0.5px;
+    }
+
+    .section-subtext {
+      margin-top: 0.8rem;
+      font-size: 1.1rem;
+      color: $text-dark;
+      max-width: 720px;
+      margin-inline: auto;
+      line-height: 1.6;
+    }
+  }
+
+  .innovation-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+
+  .innovation-card {
+    background: $white;
+    border-radius: 1.5rem;
+    padding: 2.5rem 2rem;
+    max-width: 320px;
+    width: 100%;
+    box-shadow: $shadow-light;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    }
+
+    .icon-circle {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 1.2rem auto;
+      background: rgba($primary, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 12px rgba($primary, 0.2);
+
+      .innovation-icon {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: $secondary;
+      margin-bottom: 0.6rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: $text-dark;
+      line-height: 1.6;
+      min-height: 64px;
+    }
+
+    .status-badge {
+      margin-top: 1.2rem;
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      font-size: 0.75rem;
+      font-weight: bold;
+      border-radius: 999px;
+      background: $primary;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .glow {
+      animation: glowPulse 3s ease-in-out infinite;
+      box-shadow: 0 0 8px rgba($primary, 0.5), 0 0 16px rgba($primary, 0.4);
+    }
+  }
+}
+
+// Dark mode
+.dark .innovation-section {
+  background: $dark-bg;
+
+  .section-title {
+    color: $text-light;
+  }
+
+  .section-subtext {
+    color: $muted-light;
+  }
+
+  .innovation-card {
+    h3 {
+      color: $primary-light;
+    }
+
+    p {
+      color: $muted-light;
+    }
+
+    .glow {
+      box-shadow: 0 0 10px rgba($primary-light, 0.6),
+                  0 0 18px rgba($primary-light, 0.5);
+      background: lighten($primary, 10%);
+    }
+  }
+}
+
+// Animation
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 8px rgba($primary, 0.4), 0 0 12px rgba($primary, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba($primary, 0.6), 0 0 24px rgba($primary, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 8px rgba($primary, 0.4), 0 0 12px rgba($primary, 0.3);
+  }
+}
+
+.innovation-mission {
+  margin-top: 5rem;
+  padding: 3rem 2rem;
+  max-width: 860px;
+  margin-inline: auto;
+  background: rgba($primary, 0.05);
+  border-radius: 1.5rem;
+  text-align: center;
+
+  h3 {
+    font-size: 1.8rem;
+    color: $deep-blue;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: $text-dark;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .cta {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $secondary;
+
+    .highlight {
+      color: $primary;
+      font-weight: 700;
+    }
+  }
+}
+
+// Dark mode support
+.dark .innovation-mission {
+  background: rgba($primary-light, 0.05);
+
+  h3 {
+    color: $text-light;
+  }
+
+  p {
+    color: $muted-light;
+  }
+
+  .cta {
+    color: $primary-light;
+
+    .highlight {
+      color: lighten($primary-light, 10%);
+    }
+  }
+}

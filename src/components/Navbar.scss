@@ -1,0 +1,673 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Rose:wght@300..700&display=swap");
+
+$primary: #0092de;
+$secondary: #00224d;
+$deep-blue: #003c77;
+$light-bg: #ffffff;
+$dark-bg: #0c1525;
+$text-dark: #111;
+$text-light: #f0f0f0;
+$graphite: #f4f6f8;
+$shadow-light: 0 4px 18px rgba(0, 0, 0, 0.08);
+$shadow-dark: 0 4px 18px rgba(255, 255, 255, 0.06);
+
+// Breakpoints
+$mobile: 768px;
+$tablet: 1023px; // Changed to 1023px so 1024px shows desktop view
+$desktop: 1024px;
+
+* {
+  font-family: "Red Rose", sans-serif;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+// Utility classes for responsive design
+.desktop-only {
+  @media (max-width: $tablet) {
+    display: none !important;
+  }
+}
+
+.tablet-mobile-only {
+  display: none;
+
+  @media (max-width: $tablet) {
+    display: block !important;
+  }
+}
+
+// Mobile-only elements (hamburger menu, mobile menu toggle)
+.mobile-only {
+  display: none;
+
+  @media (max-width: $tablet) {
+    display: block !important;
+  }
+}
+
+// Navbar container to center the navbar
+.navbar-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem;
+  
+
+  @media (max-width: $mobile) {
+    padding: 0 0.5rem;
+  }
+}
+
+.navbar {
+  width: 100%;
+  max-width: 1280px;
+  margin: 1.2rem auto; // Added auto for centering
+  padding: 0.8rem 2rem;
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: $light-bg;
+  border-radius: 9999px;
+  box-shadow: $shadow-light;
+  overflow: visible;
+  box-sizing: border-box;
+  transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+
+  @media (max-width: $tablet) {
+    margin: 0.8rem auto; // Keep auto centering on smaller screens
+    padding: 0.6rem 1rem;
+  }
+
+  &.dark {
+    background: $dark-bg;
+    color: $text-light;
+    box-shadow: $shadow-dark;
+
+    .search-bar,
+    .mobile-search-bar {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .search-input,
+    .search-category,
+    .signup,
+    .mobile-signup,
+    .navbar-center li,
+    .mobile-nav li {
+      color: $text-light;
+    }
+
+    .login,
+    .mobile-login {
+      background-color: $primary;
+      color: #fff;
+    }
+
+    .logo-badge {
+      background-color: rgba(255, 255, 255, 0.06);
+    }
+
+    .mobile-menu {
+      background: $dark-bg;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+.logo-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f4f6f8;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+
+  @media (max-width: $tablet) {
+    padding: 0.3rem 0.8rem;
+  }
+
+  .logo-img {
+    width: 28px;
+    height: 28px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: $primary;
+
+    @media (max-width: $tablet) {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .logo-text {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $primary;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+
+    @media (max-width: $tablet) {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-shrink: 0;
+
+  @media (max-width: $tablet) {
+    gap: 1rem;
+  }
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: $graphite;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 9999px;
+  padding: 0.3rem 0.8rem;
+  transition: all 0.3s ease;
+
+  // Hide on mobile only (below 768px)
+  @media (max-width: $mobile) {
+    display: none;
+  }
+
+  // Show on tablet (769px-1023px) and desktop (1024px+)
+  @media (min-width: 769px) {
+    display: flex;
+  }
+
+  @media (min-width: $desktop) and (max-width: 1200px) {
+    .search-input {
+      width: 120px;
+    }
+  }
+}
+
+.search-category,
+.search-input {
+  border: none;
+  background: transparent;
+  font-size: 0.875rem;
+  outline: none;
+  color: inherit;
+}
+
+.search-input {
+  margin-left: 0.5rem;
+  width: 190px;
+}
+
+.search-button {
+  background: $primary;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 0.4rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background: #007ac2;
+  }
+}
+
+.navbar-center {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  flex: 1; // Added to help with centering
+  justify-content: center; // Center the navigation items
+
+  // Hide on mobile only (below 768px)
+  @media (max-width: $mobile) {
+    display: none;
+  }
+
+  // Show on tablet (769px-1023px) and desktop (1024px+)
+  @media (min-width: 769px) {
+    display: flex;
+  }
+
+  li {
+    position: relative;
+
+    .navlink {
+      cursor: pointer;
+      display: inline-block;
+      padding-bottom: 4px;
+      position: relative;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: #111 !important;
+      padding-top: 4px;
+
+      transform: translateY(2px);
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: $primary;
+        transition: width 0.3s ease;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.navbar-right {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-shrink: 0;
+
+  @media (max-width: $tablet) {
+    gap: 0.8rem;
+  }
+}
+
+.auth-links {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+
+  // Hide on mobile only (below 768px)
+  @media (max-width: $mobile) {
+    display: none;
+  }
+
+  // Show on tablet (769px-1023px) and desktop (1024px+)
+  @media (min-width: 769px) {
+    display: flex;
+  }
+}
+
+.signup {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: $secondary;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+
+  &:hover {
+    color: $primary;
+    background: rgba($primary, 0.1);
+  }
+}
+
+.login {
+  background-color: $deep-blue;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $secondary;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba($deep-blue, 0.3);
+  }
+}
+
+.mode-toggle {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: inherit;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+.mobile-menu-toggle {
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: inherit;
+  transition: color 0.2s;
+  display: none; // Hidden by default
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem;
+
+  // Only show on mobile (below 768px)
+  @media (max-width: $mobile) {
+    display: flex;
+  }
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+// Mobile Menu Styles
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  display: none; // Hidden by default
+
+  // Only show on mobile (below 768px)
+  @media (max-width: $mobile) {
+    display: block;
+  }
+}
+
+.mobile-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: $light-bg;
+  border-radius: 1rem;
+  box-shadow: $shadow-light;
+  z-index: 999;
+  padding: 1.5rem;
+  margin: 0 0.5rem;
+  display: none; // Hidden by default
+
+  // Only show on mobile (below 768px)
+  @media (max-width: $mobile) {
+    display: block;
+  }
+
+  border-radius: 1rem;
+}
+
+.mobile-search-bar {
+  display: flex;
+  align-items: center;
+  background: $graphite;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 9999px;
+  padding: 0.4rem 1rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+
+  .search-category,
+  .search-input {
+    border: none;
+    background: transparent;
+    font-size: 0.875rem;
+    outline: none;
+    color: inherit;
+  }
+
+  .search-input {
+    margin-left: 0.5rem;
+    flex: 1;
+  }
+
+  .search-button {
+    background: $primary;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 0.4rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background: #007ac2;
+    }
+  }
+}
+
+.mobile-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+
+  li {
+    margin-bottom: 0.8rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .mobile-navlink {
+      display: block;
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      font-weight: 500;
+      color: $text-dark;
+      cursor: pointer;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+
+      &:hover {
+        background: rgba($primary, 0.1);
+        color: $primary;
+      }
+    }
+  }
+}
+
+.mobile-auth {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+  .mobile-signup {
+    font-size: 1rem;
+    font-weight: 500;
+    color: $secondary;
+    text-decoration: none;
+    text-align: center;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba($primary, 0.1);
+      color: $primary;
+    }
+  }
+
+  .mobile-login {
+    background-color: $deep-blue;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background-color: $secondary;
+    }
+  }
+}
+
+// Dark mode mobile menu
+.navbar.dark {
+  .navbar-center li .navlink {
+    color: $text-light !important;
+
+    &::after {
+      background-color: $text-light;
+    }
+
+    &:hover {
+      color: $primary !important;
+    }
+  }
+
+
+  .mobile-auth {
+    border-top-color: rgba(255, 255, 255, 0.1);
+
+    .mobile-signup {
+      color: $text-light;
+
+      &:hover {
+        background: rgba($primary, 0.2);
+        color: $primary;
+      }
+    }
+  }
+}
+
+.logo-img {
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: $primary; // optional fallback
+}
+
+.search-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+
+  .search-popup {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 1.25rem;
+    padding: 2.2rem 2rem;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    animation: popupFadeIn 0.4s ease-out;
+    position: relative;
+    z-index: 10000;
+
+    .popup-animation {
+      width: 160px;
+      margin: 0 auto 1.2rem auto;
+    }
+
+    .popup-message {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #111;
+    }
+
+    .popup-note {
+      font-size: 0.95rem;
+      margin-top: 0.6rem;
+      color: #444;
+    }
+
+    .popup-close {
+      margin-top: 1.8rem;
+      background: #111;
+      color: white;
+      padding: 0.65rem 1.5rem;
+      border: none;
+      border-radius: 999px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: #000;
+      }
+    }
+  }
+}
+
+// Dark mode adaptation
+.dark .search-popup {
+  background: rgba(255, 255, 255, 0.06);
+  color: #f0f0f0;
+
+  .popup-message {
+    color: #f0f0f0;
+  }
+
+  .popup-note {
+    color: #bbb;
+  }
+
+  .popup-close {
+    background: #f0f0f0;
+    color: #111;
+
+    &:hover {
+      background: #fff;
+    }
+  }
+}
+
+// Smooth popup animation
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

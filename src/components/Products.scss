@@ -1,0 +1,161 @@
+// @import "../styles/variables";
+@use "../styles/variables" as *;
+
+.products-section {
+  padding: 5rem 2rem;
+  text-align: center;
+  background: $light-bg;
+  transition: background 0.3s ease, color 0.3s ease;
+
+  .products-header {
+    margin-bottom: 3rem;
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: $deep-blue;
+    }
+
+    .section-subtext {
+      margin-top: 0.75rem;
+      font-size: 1.1rem;
+      color: $text-dark;
+    }
+  }
+
+  .products-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+  }
+
+  .product-card {
+    background: $white; // 💡 stays same in all themes
+    border-radius: 1.5rem;
+    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    box-shadow: $shadow-light;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    }
+
+    .icon-wrapper {
+      margin-bottom: 1.2rem;
+      position: relative;
+
+      .confidential-label {
+        display: inline-block;
+        padding: 0.35rem 0.8rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: white;
+        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: repeating-linear-gradient(
+          -45deg,
+          #000,
+          #000 10px,
+          #ff0000 10px,
+          #ff0000 20px
+        );
+        transform: rotate(-3deg);
+        animation: flicker 2s infinite;
+      }
+    }
+
+    .glitch-text {
+      font-size: 1.3rem;
+      font-weight: 600;
+      position: relative;
+      color: $secondary;
+      animation: glitch 2s infinite;
+    }
+
+    .redacted-desc {
+      font-size: 0.95rem;
+      margin-top: 0.8rem;
+      font-family: monospace;
+      color: $text-dark;
+    }
+  }
+}
+
+// ✅ DARK MODE (section only)
+.dark .products-section {
+  background: $dark-bg;
+
+  .section-title {
+    color: $text-light;
+  }
+
+  .section-subtext {
+    color: $muted-light;
+  }
+
+  .glitch-text {
+    color: $primary-light;
+  }
+
+  .redacted-desc {
+    color: $muted-light;
+  }
+
+  .confidential-label {
+    background: repeating-linear-gradient(
+      -45deg,
+      #ff0000,
+      #ff0000 12px,
+      #000 12px,
+      #000 24px
+    );
+    color: #fff;
+  }
+
+  // No changes to .product-card to preserve light feel
+}
+
+// ✨ Glitch animation
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 0 red, -2px 0 cyan;
+  }
+  20% {
+    text-shadow: -2px -1px red, 2px 1px cyan;
+  }
+  40% {
+    text-shadow: 1px 2px red, -1px -2px cyan;
+  }
+  60% {
+    text-shadow: -1px 2px red, 1px -2px cyan;
+  }
+  80% {
+    text-shadow: 2px -1px red, -2px 1px cyan;
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+// ✨ Flicker animation
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+
+  20%, 22%, 55% {
+    opacity: 0.4;
+  }
+
+  24% {
+    opacity: 0.1;
+  }
+}

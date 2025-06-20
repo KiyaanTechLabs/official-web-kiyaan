@@ -1,0 +1,19 @@
+@import "../styles/_variables";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: $light-bg;
+  color: $text-dark;
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark, .dark body {
+  background-color: $dark-bg;
+  color: $text-light;
+}
+
+html {
+  scroll-behavior: smooth;
+}

@@ -1,0 +1,93 @@
+@import "../styles/variables";
+
+.core-features {
+  padding: 2rem 2rem;
+  background: $light-bg;
+  text-align: center;
+  transition: background 0.4s ease, color 0.4s ease;
+
+  .features-header {
+    margin-bottom: 3rem;
+
+    h2 {
+      font-size: 2.8rem;
+      color: $deep-blue;
+      font-weight: 700;
+    }
+
+    p {
+      margin-top: 0.5rem;
+      font-size: 1.05rem;
+      color: $text-dark;
+    }
+  }
+
+  .features-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+
+    .features-top,
+    .features-bottom {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .feature-card {
+      background: $white; // 🔒 locked to white
+      border-radius: 1.5rem;
+      padding: 2rem;
+      max-width: 320px;
+      flex: 1 1 280px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: $shadow-light;
+      text-align: center;
+
+      &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+      }
+
+      .feature-icon {
+        width: 56px;
+        height: 56px;
+        margin-bottom: 1rem;
+        object-fit: contain;
+        font-size: 2.5rem;
+        color: $secondary;
+      }
+
+      h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: $secondary;
+        margin-bottom: 0.75rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+        color: $text-dark; // Text remains readable on white
+        line-height: 1.6;
+      }
+    }
+  }
+}
+
+// ✅ DARK MODE (only apply to header & bg, NOT cards)
+.dark .core-features {
+  background: $dark-bg;
+
+  .features-header {
+    h2 {
+      color: $text-light;
+    }
+
+    p {
+      color: $muted-light;
+    }
+  }
+
+  // NO OVERRIDES on `.feature-card` so card remains same in all modes
+}
